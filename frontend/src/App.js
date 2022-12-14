@@ -1,7 +1,7 @@
-import logo from './logo.svg';
+
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Standings from './Standings'
+import Home from './Home'
 import { NextUIProvider } from '@nextui-org/react';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
   return (
     <NextUIProvider>
       <div className={"App-background"}>
-        <Standings/>
+        <Home/>
       </div>
 
 
