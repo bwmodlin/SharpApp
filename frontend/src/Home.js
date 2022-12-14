@@ -1,7 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import { Button, Container } from "@nextui-org/react";
+
 import './Home.css';
+
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+
+/**
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+
+ */
+
 
 /**
   useEffect(()=>{
@@ -16,18 +28,27 @@ import './Home.css';
    */
 
 function Home (props) {
+
+    const [value, setValue] = React.useState('1');
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
+
     return (
-        <div style={{ margin: "10px"}} className="hbuttons">
-            <Button flat color="primary" auto>
-                Primary
-            </Button>
-            <Button size="xl" color="primary" flat bordered auto>
-                Primary
-            </Button>
-            <Button size="xl" color="primary" flat bordered auto>
+        <div style={{margin: "5%"}} className="hbuttons">
+            <Button style={{marginRight: "5%"}} variant="outlined" size="medium">
                 Test
             </Button>
+            <Button style={{marginRight: "5%"}} variant="outlined" size="medium">
+                Huh
+            </Button>
+            <div>
+                hi
+            </div>
         </div>
+
     )
 }
 

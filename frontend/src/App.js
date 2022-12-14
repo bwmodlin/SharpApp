@@ -2,7 +2,6 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Home from './Home'
-import { NextUIProvider } from '@nextui-org/react';
 
 function App() {
 
@@ -27,13 +26,13 @@ function App() {
         }, []);
 
   return (
-    <NextUIProvider>
+
       <div className={"App-background"}>
         <Home/>
       </div>
 
 
-    </NextUIProvider>
+
   );
 }
 
