@@ -2,6 +2,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Home from './Home'
+import Steps from './Steps'
+import Footer from './Footer'
 
 function App() {
 
@@ -28,7 +30,8 @@ function App() {
   return (
 
       <div className={"App-background"}>
-        <Home/>
+        <Steps/>
+        <Footer/>
       </div>
 
 
