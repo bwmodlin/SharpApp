@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 
 import './Home.css';
-import UploadPg from './UploadPg.js' 
+import UploadPg from './UploadPg.js'
+import Param from './Param.js'
 
 import {Tabs, Tab, Box, Typography, Paper, Toolbar, Button} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
@@ -76,7 +77,7 @@ function Steps (props) {
                     <UploadPg/>
                 </TabPanel>
                 <TabPanel value={props.tab} index={1}>
-                Under Construction
+                 <Param/>
                 </TabPanel>
                 <TabPanel value={props.tab} index={2}>
                 Under Construction
