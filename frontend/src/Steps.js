@@ -54,18 +54,15 @@ function a11yProps(index) {
 
 function Steps (props) {
 
-    const [value, setValue] = React.useState(0);
-
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        props.setTab(newValue);
     };
-
 
     return (
         <div>
             <AppBar color="inherit" >
                 <Tabs 
-                    value={value}
+                    value={props.tab}
                     onChange={handleChange}
                     aria-label="basic tabs example"
                     variant="fullWidth"
@@ -75,13 +72,13 @@ function Steps (props) {
                     <Tab label="Run Program" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={props.tab} index={0}>
                     <UploadPg/>
                 </TabPanel>
-                <TabPanel value={value} index={1}>
+                <TabPanel value={props.tab} index={1}>
                 Under Construction
                 </TabPanel>
-                <TabPanel value={value} index={2}>
+                <TabPanel value={props.tab} index={2}>
                 Under Construction
             </TabPanel>
         </div>
