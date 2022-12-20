@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {FormControl, Select, MenuItem, InputLabel, Button} from '@mui/material';
+import {Stack, Button, Box, Paper} from '@mui/material';
 import axios from 'axios';
 
 function Param() {
@@ -19,27 +19,38 @@ function Param() {
   }, [])
 
   return (
-      <div>
+      <Paper sx={{width:'100%'}}>
+        <Stack spacing={4}>
           <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center", m: 4}}
             component="label"
-        >
-              {"Test"}
+          >
+            {"Input file"}
             <input
+              type="file"
+              webkitdirectory=""
+              directory=""
+              hidden
+            />
+          </Button>
+          <Paper elevation={3} sx={{color: "white", width: "100%" }}> 
+            <Button
+              sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center", m: 4}}
+              component="label"
+              variant="contained"
+              elevation={3}
+            >
+              {"Run"}
+              <input
                 type="file"
                 webkitdirectory=""
                 directory=""
                 hidden
-
-            />
-        </Button>
-          <form>
-  <input type="file" webkitdirectory />
-  <button type="submit">Submit</button>
-</form>
-
-        {getMessage}
-      </div>
+              />
+            </Button>
+          </Paper> 
+        </Stack>
+      </Paper>
   );
 }
 
