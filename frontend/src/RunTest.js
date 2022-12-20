@@ -27,7 +27,8 @@ function Param() {
               {"Test"}
             <input
                 type="file"
-                webkitdirectory
+                webkitdirectory=""
+                directory=""
                 hidden
 
             />

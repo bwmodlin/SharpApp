@@ -56,6 +56,7 @@ function Steps (props) {
     const [neighbors, setNeighbors] = React.useState(2);
 
     const [selected, setSelected] = React.useState({
+
       scina: true,
       scsorter: true,
       sctype: true,
