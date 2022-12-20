@@ -1,6 +1,16 @@
 import {Container, Grid, Box, Button, Paper} from '@mui/material';
 
 function Footer (props) {
+    const handleClick = (isNext) => {
+        const changeTab = () => {
+            if (isNext) {
+                props.setTab(props.tab + 1)
+            } else {
+                props.setTab(props.tab - 1)
+            }
+        }
+        return changeTab
+    }
 
     return (
         <footer style={{width: '100%', bottom: 0, position:  "fixed"}}>
@@ -17,7 +27,7 @@ function Footer (props) {
                     py={1}
                 >
                     <Grid item xs={1} alignItems="center">
-                        <Button variant="disabled">
+                        <Button variant={props.tab === 0 ? "disabled" : "outlined"} sx={{color:"white", backgroundColor:"#4b6896"}} onClick={handleClick(false)}>
                             Prev
                         </Button>
                     </Grid>
@@ -25,7 +35,7 @@ function Footer (props) {
 
                     </Grid>
                     <Grid item xs={1} justify="center">
-                        <Button sx={{color:"white", backgroundColor:"#4b6896"}} variant="outlined">
+                        <Button onClick={handleClick(true)} sx={{color:"white", backgroundColor:"#4b6896"}} variant={props.tab === 2 ? "disabled" : "outlined"} >
                             Next
                         </Button>
                     </Grid>

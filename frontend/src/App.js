@@ -1,13 +1,14 @@
 
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Home from './Home'
 import Steps from './Steps'
 import Footer from './Footer'
 
 function App() {
 
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+    const [tab, setTab] = React.useState(0);
 
     function getWindowDimensions() {
       const { innerWidth: width, innerHeight: height } = window;
@@ -30,8 +31,14 @@ function App() {
   return (
 
       <div className={"App-background"}>
-        <Steps/>
-        <Footer/>
+        <Steps
+            tab = {tab}
+            setTab = {setTab}
+        />
+        <Footer
+            tab = {tab}
+            setTab = {setTab}
+        />
       </div>
 
 

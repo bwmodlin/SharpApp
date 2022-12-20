@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
 import './Home.css';
-import UploadPg from './UploadPg.js' 
+import UploadPg from './UploadPg.js'
+import Param from './Param.js'
+import RunTest from './RunTest.js'
 
 import {Tabs, Tab, Box, Typography, Paper, Toolbar, Button} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-
-
-
-/**
-  useEffect(()=>{
-    axios.get('http://127.0.0.1:5000/flask/hello').then(response => {
-      console.log("SUCCESS", response)
-      setGetMessage(response)
-    }).catch(error => {
-      console.log(error)
-    })
-
-  }, [])
-**/
 
 const styles = (theme) => ({
     toolbar: theme.mixins.toolbar,
@@ -54,35 +42,66 @@ function a11yProps(index) {
 
 function Steps (props) {
 
-    const [value, setValue] = React.useState(0);
-
     const handleChange = (event, newValue) => {
-        setValue(newValue);
+        props.setTab(newValue);
     };
 
+    const [dataFile, setDataFile] = useState(["Select Data File", null])
+    //const [toolPreds, setToolPreds] = useState("Select Tool Preds")
+    const [markerFile, setMarkerFile] = useState(["Select Marker File", null])
+    const [configFile, setConfigFile] = useState(["Select Config File", null])
+    const [refFile, setRefFile] = useState(["Select Reference File", null])
+    const [labelFile, setLabelFile] = useState(["Select Label File", null])
+
+    const [neighbors, setNeighbors] = React.useState(2);
+
+    const [selected, setSelected] = React.useState({
+
+      scina: true,
+      scsorter: true,
+      sctype: true,
+      scpred: true,
+      singler: true
+  });
 
     return (
         <div>
             <AppBar color="inherit" >
                 <Tabs 
-                    value={value}
+                    value={props.tab}
                     onChange={handleChange}
                     aria-label="basic tabs example"
                     variant="fullWidth"
                 >
                     <Tab label="Select Data" {...a11yProps(0)} />
                     <Tab label="Parameters" {...a11yProps(1)} />
-                    <Tab label="Run Program" {...a11yProps(2)} />
+                    <Tab label="Run Tools" {...a11yProps(2)} />
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0}>
-                    <UploadPg/>
+            <TabPanel value={props.tab} index={0}>
+                    <UploadPg
+                        dataFile={dataFile}
+                        setDataFile={setDataFile}
+                        markerFile={markerFile}
+                        setMarkerFile={setMarkerFile}
+                        configFile={configFile}
+                        setConfigFile={setConfigFile}
+                        refFile={refFile}
+                        setRefFile={setRefFile}
+                        labelFile={labelFile}
+                        setLabelFile={setLabelFile}
+                    />
                 </TabPanel>
-                <TabPanel value={value} index={1}>
-                Under Construction
+                <TabPanel value={props.tab} index={1}>
+                 <Param
+                     neighbors={neighbors}
+                     setNeighbors={setNeighbors}
+                     selected={selected}
+                     setSelected={setSelected}
+                 />
                 </TabPanel>
-                <TabPanel value={value} index={2}>
-                Under Construction
+                <TabPanel value={props.tab} index={2}>
+                    <RunTest/>
             </TabPanel>
         </div>
     )
