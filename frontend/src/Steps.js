@@ -3,23 +3,10 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import UploadPg from './UploadPg.js'
 import Param from './Param.js'
+import RunTest from './RunTest.js'
 
 import {Tabs, Tab, Box, Typography, Paper, Toolbar, Button} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
-
-
-
-/**
-  useEffect(()=>{
-    axios.get('http://127.0.0.1:5000/flask/hello').then(response => {
-      console.log("SUCCESS", response)
-      setGetMessage(response)
-    }).catch(error => {
-      console.log(error)
-    })
-
-  }, [])
-**/
 
 const styles = (theme) => ({
     toolbar: theme.mixins.toolbar,
@@ -80,7 +67,7 @@ function Steps (props) {
                  <Param/>
                 </TabPanel>
                 <TabPanel value={props.tab} index={2}>
-                Under Construction
+                    <RunTest/>
             </TabPanel>
         </div>
     )

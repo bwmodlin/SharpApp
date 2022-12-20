@@ -27,7 +27,7 @@ function Footer (props) {
                     py={1}
                 >
                     <Grid item xs={1} alignItems="center">
-                        <Button variant={props.tab === 0 ? "disabled" : "outlined"} onClick={handleClick(false)}>
+                        <Button variant={props.tab === 0 ? "disabled" : "outlined"} sx={{color:"white", backgroundColor:"#4b6896"}} onClick={handleClick(false)}>
                             Prev
                         </Button>
                     </Grid>

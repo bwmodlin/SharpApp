@@ -1,7 +1,6 @@
 
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import Home from './Home'
 import Steps from './Steps'
 import Footer from './Footer'
 
