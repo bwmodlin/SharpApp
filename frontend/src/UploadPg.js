@@ -3,13 +3,10 @@ import React, { useEffect, useState } from 'react';
 import {Container, Grid, Box, Button, Paper, Divider} from '@mui/material';
 import Stack from '@mui/material/Stack';
 
-function UploadPg() {
-    const [dataFile, setDataFile] = useState(["Select Data File", null])
-    //const [toolPreds, setToolPreds] = useState("Select Tool Preds")
-    const [markerFile, setMarkerFile] = useState(["Select Marker File", null])
-    const [configFile, setConfigFile] = useState(["Select Config File", null])
-    const [refFile, setRefFile] = useState(["Select Reference File", null])
-    const [labelFile, setLabelFile] = useState(["Select Label File", null])
+function UploadPg(props) {
+    const {dataFile, setDataFile, markerFile, setMarkerFile, configFile,
+        setConfigFile, refFile, setRefFile, labelFile, setLabelFile} = props
+
 
     const handleChange = (buttonID, event) => {
         const item = event.target.files.item(0)
@@ -43,7 +40,7 @@ function UploadPg() {
       <Stack
         direction="row"
         divider={<Divider orientation="vertical" flexItem />}
-        spacing={0.5}
+        spacing={1.0}
       >
         <Button
             sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}

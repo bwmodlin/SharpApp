@@ -1,7 +1,7 @@
-from flask import Flask, send_from_directory, request
+from flask import Flask, send_from_directory, request, jsonify
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
-from api import runTools
+#from api import runTools
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 CORS(app) #comment this on deployment
@@ -13,7 +13,7 @@ def serve(path):
 
 @app.route("/submit")
 def flask_hello():
-    response = runTools.handle(request)
+    #response = runTools.handle(request)
     #response.headers.add('Access-Control-Allow-Origin', '*')
     #response.headers.add("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,PATCH,OPTIONS")
     return
@@ -22,9 +22,13 @@ def flask_hello():
 def rtools():
     # Parse the request body as JSON
     data = request.get_json()
-    print()
+    print(data)
+
+    response = jsonify({"message" : "Successfully Ran RTools"}), 201, {'Content-Type': 'application/json'}
+
+    return response
 
     # Access a specific field in the request data
     # name = data['name']
 
-    runTools(data)
+    #runTools(data)
