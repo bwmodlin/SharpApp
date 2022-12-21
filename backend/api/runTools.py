@@ -4,6 +4,8 @@ from flask import jsonify
 import sys
 sys.path.insert(1, '/Users/maxperozek/CP499/scSHARP_tool/')
 from scSHARP.sc_sharp import scSHARP
+import numpy
+import torch
 
 def handle(data):
     data_path = data["dataFile"]
@@ -20,8 +22,9 @@ def handle(data):
                     neighbors=neighbors, config=config)
 
     #sharp.run_tools(out_path, ref_path, ref_label_path)
-    sharp.run_prediction()
-    sharp.save_model("/Users/maxperozek/desktop/RTools/name")
+    preds, train_nodes, test_nodes, keep_cells, conf_scores = sharp.run_prediction()
+    np_array = preds.numpy()
+    numpy.savetxt(out_path + "/" + "scSHARPpreds.csv", np_array, delimiter = ",")
 
     print("done running")
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper'
 import { styled } from '@mui/material/styles';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
@@ -43,28 +44,30 @@ export default function Param(props) {
   return (
     <Box sx={{ display: 'flex'}}>
       <FormControl sx={{ m: 3, width: "20vw"}} component="fieldset" variant="standard" error={error}>
-        <FormLabel sx={{ color : "#A9A9A9"}} component="legend">Supervised Tools</FormLabel>
+        <Paper sx={{p:1}}>
+        <FormLabel sx={{ color : "#505050"}} component="legend">Supervised Tools</FormLabel>
+        <FormHelperText sx={{ color : "#707070"}}>Markers Required</FormHelperText>
         <FormGroup>
           <FormControlLabel
             control={
               <Checkbox checked={scina} onChange={handleChange} name="scina" />
             }
-            label="scina"
+            label="SCINA"
           />
           <FormControlLabel
             control={
               <Checkbox checked={scsorter} onChange={handleChange} name="scsorter" />
             }
-            label="scsorter"
+            label="scSorter"
           />
           <FormControlLabel
             control={
               <Checkbox checked={sctype} onChange={handleChange} name="sctype" />
             }
-            label="sctype"
+            label="scType"
           />
         </FormGroup>
-        <FormHelperText sx={{ color : "#D3D3D3"}}>Markers Required</FormHelperText>
+        </Paper>
       </FormControl>
 
       <FormControl
@@ -73,29 +76,31 @@ export default function Param(props) {
         variant="standard"
         error={error}
       >
-        <FormLabel sx={{ color : "#A9A9A9"}} component="legend">Unsupervised Tools </FormLabel>
+        <Paper sx={{p:1}}>
+        <FormLabel sx={{ color : "#505050"}} component="legend">Unsupervised Tools </FormLabel>
+        <FormHelperText sx={{ color : "#707070"}}>Should Work with Most Datasets</FormHelperText>
         <FormGroup>
           <FormControlLabel
             control={
               <Checkbox checked={scpred} onChange={handleChange} name="scpred" />
             }
-            label="scpred"
+            label="scPred"
           />
           <FormControlLabel
             control={
               <Checkbox checked={singler} onChange={handleChange} name="singler" />
             }
-            label="singler"
+            label="Singler"
           />
         </FormGroup>
-        <FormHelperText sx={{ color : "#D3D3D3"}}>Should Work with Most Datasets</FormHelperText>
-
-
+      </Paper>
       </FormControl>
-        <FormControl sx={{ m: 3, width: "15vw"}} component="fieldset" variant="standard">
-            <InputLabel htmlFor="my-input" sx={{ color : "#A9A9A9"}}>Neighbors</InputLabel>
-  <Input sx = {{ color : "lightgrey"}}
-      value={neighbors}
+        <FormControl sx={{ m: 3, width: "20vw"}} component="fieldset" variant="standard">
+        <Paper sx={{p:2}}>
+          <FormLabel sx={{ color : "#505050"}} component="legend"> Neighbors for KNN Graph </FormLabel> 
+          <FormHelperText sx={{ color : "#707070"}}>Two is a good default if you are in need of one</FormHelperText>  
+          <Input sx = {{ color : "#505050"}}
+            value={neighbors}
             onChange={handleInputChange}
             onBlur={handleBlur}
             inputProps={{
@@ -105,7 +110,7 @@ export default function Param(props) {
               type: 'number',
               'aria-labelledby': 'input-slider',
             }} />
-  <FormHelperText sx={{ color : "#D3D3D3"}}>Helper Text</FormHelperText>
+          </Paper>
         </FormControl>
 
 

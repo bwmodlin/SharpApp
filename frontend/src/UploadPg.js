@@ -37,13 +37,14 @@ function UploadPg(props) {
   return (
 
       <div>
+      <Paper sx={{ display: 'flex', justifyContent: 'center', p:3, width: "70vw"}}>
       <Stack
-        direction="row"
+        direction="column"
         divider={<Divider orientation="vertical" flexItem />}
         spacing={1.0}
       >
         <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "50vw", textAlign: "center", }}
             component="label"
         >
             {dataFile[0]}
@@ -54,7 +55,7 @@ function UploadPg(props) {
             />
         </Button>
           <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "50vw", textAlign: "center"}}
             component="label"
         >
             {markerFile[0]}
@@ -65,7 +66,7 @@ function UploadPg(props) {
             />
         </Button>
           <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "50vw", textAlign: "center"}}
             component="label"
         >
             {configFile[0]}
@@ -76,7 +77,7 @@ function UploadPg(props) {
             />
         </Button>
           <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "50vw", textAlign: "center"}}
             component="label"
         >
             {refFile[0]}
@@ -87,7 +88,7 @@ function UploadPg(props) {
             />
         </Button>
           <Button
-            sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center"}}
+            sx={{color:"white", backgroundColor:"#4b6896", width: "50vw", textAlign: "center"}}
             component="label"
         >
             {labelFile[0]}
@@ -98,6 +99,7 @@ function UploadPg(props) {
             />
         </Button>
       </Stack>
+      </Paper>
     </div>
 
       /*<Grid container className={"Upload-page"} justifyContent="flex-end">

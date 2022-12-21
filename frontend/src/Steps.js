@@ -102,7 +102,7 @@ function Steps (props) {
                      setSelected={setSelected}
                  />
                 </TabPanel>
-                <TabPanel value={props.tab} index={2}>
+                <TabPanel value={props.tab} index={2} sx={{width: "100%"}}>
                     <RunTest
                       dataFile={dataFile}
                       markerFile={markerFile}

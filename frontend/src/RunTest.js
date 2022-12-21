@@ -29,8 +29,9 @@ function Param(props) {
   }
 
   return (
-      <Paper sx={{width:'100%'}}>
         <Stack spacing={4}>
+          <Paper elevation={3} sx={{color: "white", m: 1, width: "50vw", justifyContent: 'center'}}>
+          <Box sx={{ display: 'flex', justifyContent: 'center', width: 1 }}> 
           <Button
             sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center", m: 4}}
             component="label"
@@ -44,7 +45,10 @@ function Param(props) {
               hidden
             />
           </Button>
-          <Paper elevation={3} sx={{color: "white", width: "100%" }}> 
+          </Box>
+          </Paper>
+          <Paper elevation={3} sx={{color: "white", m: 1, width: "50vw", justifyContent: 'center'}}> 
+            <Box sx={{ display: 'flex', justifyContent: 'center', width: 1 }}>
             <Button
               sx={{color:"white", backgroundColor:"#4b6896", width: "15vw", textAlign: "center", m: 4}}
               component="label"
@@ -54,9 +58,9 @@ function Param(props) {
             >
               {"Run"}
             </Button>
+            </Box>
           </Paper> 
         </Stack>
-      </Paper>
   );
 }
 
