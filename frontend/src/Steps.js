@@ -111,6 +111,9 @@ function Steps (props) {
                       labelFile={labelFile}
                       neighbors={neighbors}
                       selected={selected}
+                      outputPath={outputPath}
+                      setOutputPath={setOutputPath}
+
                     />
             </TabPanel>
         </div>
