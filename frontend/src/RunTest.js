@@ -2,11 +2,13 @@ import React, {useEffect, useState} from "react";
 import {Stack, Button, Box, Paper} from '@mui/material';
 import axios from 'axios';
 
-function Param() {
-
+function Param(props) {
+  const {dataFile, markerFile, configFile, refFile, labelFile, neighbors, selected} = props
+  
   const [getMessage, setGetMessage] = useState("loading")
-  useEffect(()=>{
-    axios.post('http://127.0.0.1:5000/rtools/run', {message: "hi"}, {
+
+  const onRun = () => {
+    axios.post('http://127.0.0.1:5000/rtools/run', {dataFile: dataFile[1], markerFile: markerFile[1], configFile: configFile[1], refFile: refFile[1], labelFile: labelFile[1], neighbors: neighbors, selected: selected.toString()}, {
   headers: {
     'Content-Type': 'application/json'
   }}).then(response => {
@@ -15,8 +17,7 @@ function Param() {
     }).catch(error => {
       console.log(error)
     })
-
-  }, [])
+  }
 
   return (
       <Paper sx={{width:'100%'}}>
@@ -39,14 +40,9 @@ function Param() {
               component="label"
               variant="contained"
               elevation={3}
+              onClick={onRun}
             >
               {"Run"}
-              <input
-                type="file"
-                webkitdirectory=""
-                directory=""
-                hidden
-              />
             </Button>
           </Paper> 
         </Stack>

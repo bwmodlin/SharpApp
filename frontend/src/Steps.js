@@ -53,6 +53,8 @@ function Steps (props) {
     const [refFile, setRefFile] = useState(["Select Reference File", null])
     const [labelFile, setLabelFile] = useState(["Select Label File", null])
 
+    const [outputPath, setOutputPath] = useState(["Set RTools Output Path", null])
+
     const [neighbors, setNeighbors] = React.useState(2);
 
     const [selected, setSelected] = React.useState({
@@ -101,7 +103,15 @@ function Steps (props) {
                  />
                 </TabPanel>
                 <TabPanel value={props.tab} index={2}>
-                    <RunTest/>
+                    <RunTest
+                      dataFile={dataFile}
+                      markerFile={markerFile}
+                      configFile={configFile}
+                      refFile={refFile}
+                      labelFile={labelFile}
+                      neighbors={neighbors}
+                      selected={selected}
+                    />
             </TabPanel>
         </div>
     )
